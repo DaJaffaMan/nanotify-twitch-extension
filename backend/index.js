@@ -20,7 +20,8 @@ app.use(express.static('../frontend'));
 
 app.get('/blocks', async (req, res) => {
     const numblocks = await rai.blocks.count();
-	res.json({blocks: numblocks});
+    console.log(numblocks)
+	return res.json({blocks: numblocks});
 });
 
 let options = {

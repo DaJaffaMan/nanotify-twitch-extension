@@ -13,3 +13,10 @@ or in the "license" file accompanying this file. This file is distributed on an 
   Set Javascript specific to the extension viewer view in this file.
 
 */
+getBlocks();
+
+function getBlocks() {
+	const xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "http://localhost:3000/blocks");
+	xhttp.send();
+}
