@@ -1,6 +1,6 @@
 # Twitch Extensions Boilerplate
 
-The Twitch Extensions Boilerplate acts as a simple starting point to create your Extension, as well as a simple method using Docker to locally serve your Extension for testing and development.
+The Twitch Extensions Boilerplate acts as a starting point. It is a simple method using Docker to locally serve your Extension for testing and development.
 
 ## Dependencies
 
