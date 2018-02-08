@@ -1,0 +1,12 @@
+{
+  "author": "Jack Jefferies",
+  "dependencies": {
+    "express": "^4.15.4",
+    "raiblocks-js": "^0.5.1"
+  },
+  "description": "Provides a simple starting point to create and locally develop your Twitch extension.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "Nanonotify",
+  "version": "1.0.0"
+}
