@@ -1,5 +1,3 @@
-"use strict";
-
 const {default: Rai} = require('raiblocks-js');
 const express = require('express');
 const fs = require('fs');
@@ -16,15 +14,15 @@ const PORT = 9001;
 const app = express();
 const server = https.createServer(options, app);
 const wss = new WS.Server({server});
-wss.on('connection', function connection(ws) {
-	ws.on('message', function message(msg) {
+wss.on('connection', function connection(ws: any) {
+	ws.on('message', function message(msg: any) {
 		console.log(msg);
 	});
 });
 
 const rai = new Rai('http://ec2-18-196-194-4.eu-central-1.compute.amazonaws.com:7076');
 
-app.use((req, res, next) => {
+app.use((req:any, res:any, next:any) => {
 	console.log('Got request', req.path, req.method);
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
@@ -43,7 +41,7 @@ server.listen(PORT, function () {
 
 
 	ws.on('open', function open() {
-		rai.blocks.count().then(res => {
+		rai.blocks.count().then((res: any)=> {
 			console.log(res)
 		});
 	});

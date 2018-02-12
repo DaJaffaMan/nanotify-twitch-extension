@@ -54,3 +54,4 @@ fabric.properties
 *.iml
 .idea
 node_modules
+dist/
