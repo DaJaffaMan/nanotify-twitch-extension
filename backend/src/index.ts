@@ -39,10 +39,15 @@ function startWS() {
 	});
 
 
-	ws.on('open', function open() {
+	ws.on('open', async function open() {
 		rai.blocks.count().then((res: any) => {
 			console.log(res)
 		});
+
+		const pendingTransactions = await rai.accounts.pending({accounts: ''});
+
+		console.log(pendingTransactions);
+
 	});
 }
 
