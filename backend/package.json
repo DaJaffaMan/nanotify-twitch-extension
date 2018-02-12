@@ -2,18 +2,18 @@
   "author": "Jack Jefferies",
   "dependencies": {
     "express": "^4.15.4",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^4.0.1",
     "raiblocks-js": "^0.5.1",
-    "typescript": "^2.7.1",
     "ws": "^4.0.0"
   },
   "description": "Provides a simple starting point to create and locally develop your Twitch extension.",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "dist/index",
   "name": "Nanonotify",
   "version": "1.0.0",
   "devDependencies": {
+    "typescript": "^2.7.1",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.1",
     "@types/node": "^9.4.5"
   }
 }

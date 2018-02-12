@@ -5,8 +5,6 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "outDir": "dist",
-    "strict": true,
-    "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
       "*": [

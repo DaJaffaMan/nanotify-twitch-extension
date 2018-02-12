@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-supervisor index.js
+supervisor dist/index.js

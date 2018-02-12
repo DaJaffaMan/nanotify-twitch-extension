@@ -5,6 +5,7 @@ MAINTAINER Jack Jefferies
 # Install the npm packages which change infrequently
 WORKDIR /boilerplate/backend
 COPY ./package.json ./
+COPY dist ./
 RUN npm install supervisor -g
 RUN npm install
 
