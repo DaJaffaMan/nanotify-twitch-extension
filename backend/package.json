@@ -2,7 +2,8 @@
   "author": "Jack Jefferies",
   "dependencies": {
     "express": "^4.15.4",
-    "raiblocks-js": "^0.5.1"
+    "raiblocks-js": "^0.5.1",
+    "ws": "^4.0.0"
   },
   "description": "Provides a simple starting point to create and locally develop your Twitch extension.",
   "license": "Apache-2.0",
