@@ -51,7 +51,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-backend/node_modules
 *.iml
 .idea
-
+node_modules
