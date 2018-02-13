@@ -15,6 +15,14 @@ const app = express();
 const server = https.createServer(options, app);
 const wss = new WebSocket.Server({server});
 
+let blockQueue: Block[] = [];
+
+interface Block {
+	hash: string,
+	amount: number,
+	source: string
+}
+
 function setRoutes() {
 	app.use((req: any, res: any, next: any) => {
 		console.log('Got request', req.path, req.method);
@@ -38,16 +46,35 @@ async function startWS() {
 }
 
 async function requestPending() {
-	console.log(new Date());
-	const pendingTransactions = await rai.pending.get({account: '',count: 10000, threshold: 0, source: true});
-	console.log(pendingTransactions)
-	const blockCount = await rai.blocks.count();
 	const ws = new WebSocket(`wss://localhost:${server.address().port}`, {
 		rejectUnauthorized: false
 	});
 
+	console.log(new Date());
+	const pendingTransactions = await rai.pending.get({
+		account: 'xrb_3gyoidb4mqb1qf6k8d7caddqfecnkcpe81cppizupwqxbz8fyu3eubp4rhqu',
+		count: 10000,
+		threshold: 0,
+		source: true
+	});
+	console.log(pendingTransactions)
+
+	Object.keys(pendingTransactions.blocks).forEach(hash => {
+
+		blockQueue.forEach(blockInQueue => {
+			if (blockInQueue.hash !== hash) {
+				const block: Block = {
+					hash: hash,
+					amount: pendingTransactions.blocks[hash].amount,
+					source: pendingTransactions.blocks[hash].source
+				};
+
+				blockQueue.push(block)
+			}
+		})
+	});
+
 	ws.on('open', () => {
-		ws.send(blockCount.count);
 		// ws.send(pendingTransactions.blocks);
 	})
 }
